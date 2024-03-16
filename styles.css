@@ -46,7 +46,91 @@ img {
 input {
   margin-block-end: 4rem;
 }
+input,
+select {
+  border: none;
+  padding: 2rem;
+  border-radius: 7px;
+  /* box-shadow */
+  box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px -3px rgba(17, 21, 23, 0.75);
+  -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
+  /* box-shadow */
+}
 /* --------------------------------- CLASSES  ---------------------------------*/
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.7rem 2.5rem;
+  border-radius: 2px;
+  margin-block-end: 6rem;
+  width: fit-content;
+  color: var(--very-darker-blue);
+  /* box-shadow */
+  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px -2px rgba(17, 21, 23, 0.75);
+  -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+  /* box-shadow */
+}
+.back-button [name="arrow-back-sharp"] {
+  font-size: 2rem;
+}
+.back-button a {
+  color: red;
+  font-size: 1.4rem;
+}
+.border-countries-container {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-block-end: 4rem;
+}
+.border-countries-container li {
+  font-size: 1.4rem;
+  padding: 0.6rem 2.1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  /* box-shadow */
+  box-shadow: 0px 1px 54px -13px var(--very-darker-blue);
+  -webkit-box-shadow: 0px 1px 54px -13px var(--very-darker-blue);
+  -moz-box-shadow: 0px 1px 54px -13px var(--very-darker-blue);
+  /* box-shadow */
+}
+.countries-wrapper {
+  padding-inline: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+}
+.country-card img {
+  border-radius: 7px 7px 0 0;
+}
+.country-card {
+  margin-block-end: 4.5rem;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.country-card p,
+.country-details p {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-block-end: 1.1rem;
+}
+.country-details-img {
+  margin-block-end: 3rem;
+}
+.border-countries-container li,
+.country-card span,
+.country-details span {
+  font-weight: 300;
+}
+.dark-mode,
+.dark-mode a {
+  color: var(--white);
+}
+.dark-mode {
+  background-color: var(--very-dark-blue);
+}
 .dark-mode-text {
   cursor: pointer;
   font-size: 1.4rem;
@@ -60,9 +144,22 @@ input {
   background-color: var(--dark-blue);
   color: var(--white);
 }
+.error {
+  color: red;
+}
+.h5-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-block-end: 2rem;
+}
+.inputs {
+  padding-inline: 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
 /* Navigation */
-.navigation,
-.dark-mode-wrapper {
+.dark-mode-wrapper,
+.navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,6 +167,7 @@ input {
 .dark-mode-wrapper {
   gap: 1.2rem;
 }
+
 .primary-heading {
   font-size: 1.4rem;
   font-weight: 800;
@@ -79,5 +177,53 @@ input {
   border-left: 6rem solid transparent;
 }
 /* Navigation */
-
+.search-input {
+  position: relative;
+}
+.search-icon {
+  position: absolute;
+  top: 18px;
+  font-size: 2.5rem;
+  padding-inline: 4.5rem;
+}
+.tertiary-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-block-end: 2.5rem;
+}
 /* --------------------------------- CLASSES  ---------------------------------*/
+@media (min-width: 30em) {
+  input {
+    width: 35%;
+  }
+  .country-card {
+    margin-block-end: revert;
+  }
+  .countries-wrapper {
+    gap: 7.5rem;
+  }
+  .countries-wrapper {
+    padding-inline: 8rem;
+  }
+  small,
+  .countries-wrapper,
+  .inputs,
+  .navigation {
+    padding-inline: 8rem;
+  }
+  .inputs {
+    flex-direction: revert;
+    align-items: center;
+    justify-content: space-between;
+  }
+  ::placeholder {
+    border-left: 6rem solid transparent;
+  }
+  .primary-heading {
+    font-size: 1.8rem;
+  }
+  .search-icon {
+    top: 22px;
+    padding-inline: 10.5rem;
+  }
+}
