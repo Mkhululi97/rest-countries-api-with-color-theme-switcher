@@ -57,6 +57,23 @@ select {
   -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
   /* box-shadow */
 }
+p {
+  font-size: 1.3rem;
+}
+select {
+  align-self: start;
+  margin-block-end: 5rem;
+  border-right: 1.45rem solid transparent;
+}
+/* --------------------------------- ELEMENTS  ---------------------------------*/
+
+/* --------------------------------- ID's  ---------------------------------*/
+#capital-text,
+#languages-text {
+  margin-block-end: 4.8rem;
+}
+/* --------------------------------- ID's  ---------------------------------*/
+
 /* --------------------------------- CLASSES  ---------------------------------*/
 .back-button {
   display: flex;
@@ -124,6 +141,9 @@ select {
 .country-details span {
   font-weight: 300;
 }
+.country-info-wrapper {
+  padding: 4rem 2rem;
+}
 .dark-mode,
 .dark-mode a {
   color: var(--white);
@@ -136,6 +156,8 @@ select {
   font-size: 1.4rem;
   font-weight: 600;
 }
+.dark-mode .back-button,
+.dark-mode .border-countries-container li,
 .dark-mode .country-card,
 .dark-mode header,
 .dark-mode input,
@@ -151,6 +173,10 @@ select {
   font-size: 1.5rem;
   font-weight: 700;
   margin-block-end: 2rem;
+}
+.image-container {
+  height: 200px;
+  width: auto;
 }
 .inputs {
   padding-inline: 1.3rem;
@@ -196,14 +222,30 @@ select {
   input {
     width: 35%;
   }
+  small {
+    font-size: 1.4rem;
+  }
   .country-card {
+    margin-block-end: revert;
+  }
+  .country-details {
+    display: flex;
+    gap: 10rem;
+  }
+  .country-details-img {
+    width: 30%;
+  }
+  #languages-text,
+  .country-details-img {
     margin-block-end: revert;
   }
   .countries-wrapper {
     gap: 7.5rem;
   }
-  .countries-wrapper {
-    padding-inline: 8rem;
+  .country-details-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15rem;
   }
   small,
   .countries-wrapper,
@@ -218,6 +260,12 @@ select {
   }
   ::placeholder {
     border-left: 6rem solid transparent;
+  }
+  .pd-line-60 {
+    padding-inline: 60rem !important;
+  }
+  .pd-line-8 {
+    padding-inline: 8rem !important;
   }
   .primary-heading {
     font-size: 1.8rem;
