@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=PT+Serif+Caption&display=swap");
-
 * {
   font-family: "Nunito Sans", sans-serif;
   margin: 0;
@@ -12,144 +11,47 @@
 :root {
   --dark-blue: hsl(209, 23%, 22%); /* dark mode elements */
   --very-dark-blue: hsl(209, 26%, 17%); /* dark mode background */
-  /* light mode text(for box-shadows */
-  /* --very-darker-blue: rgba(17, 21, 23, 0.756); */
-  /*light mode text*/
-  --very-darker-blue: hsl(200, 15%, 8%);
+  --very-darker-blue: hsl(200, 15%, 8%); /*light mode text*/
   --dark-gray: hsl(0, 0%, 52%); /* light mode input */
   --very-light-gray: hsl(0, 0%, 98%); /* light mode background */
   --white: hsl(0, 0%, 100%); /* dark mode text & light mode elements */
 }
 /* --------------------------------- ELEMENTS  ---------------------------------*/
+a {
+  color: var(--very-dark-blue);
+}
 html {
   font-size: 62.5%; /*MAKES 1REM = 10PX*/
   color: var(--very-darker-blue);
   background-color: var(--very-light-gray);
 }
 header {
+  background-color: var(--white);
   padding: 3rem 1.3rem;
   margin-block-end: 3.2rem;
   /* box-shadow */
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 1px 0px rgba(17, 21, 23, 0.75);
-  -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px -3px rgba(17, 21, 23, 0.75);
+  -moz-box-shadow: 0px 0px 5px -3px rgba(0, 0, 0, 0.75);
   /* box-shadow */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 input {
   margin-block-end: 4rem;
 }
-input,
-select {
-  border: none;
-  padding: 2rem;
-  border-radius: 7px;
-}
-p {
-  font-size: 1.3rem;
-}
-select {
-  align-self: start;
-  margin-block-end: 5rem;
-  border-right: 1.45rem solid transparent;
-}
-/* --------------------------------- ELEMENTS  ---------------------------------*/
-
-/* --------------------------------- ID's  ---------------------------------*/
-/* #capital-text {
-  margin-block-end: 4.8rem;
-} */
-#capital-text,
-#languages-text {
-  margin-block-end: 4.8rem;
-}
-/* --------------------------------- ID's  ---------------------------------*/
-
 /* --------------------------------- CLASSES  ---------------------------------*/
-.back-button {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  padding: 0.7rem 2.5rem;
-  border-radius: 2px;
-  margin-block-end: 6rem;
-  width: fit-content;
-  color: var(--very-darker-blue);
-  /* box-shadow */
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(17, 21, 23, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  /* box-shadow */
-}
-.back-button [name="arrow-back-sharp"] {
-  font-size: 2rem;
-}
-.back-button a {
-  color: red;
-  font-size: 1.4rem;
-}
-.border-countries-container {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  margin-block-end: 4rem;
-}
-.border-countries-container li {
-  font-size: 1.4rem;
-  padding: 0.6rem 2.1rem;
-  border-radius: 2px;
-  cursor: pointer;
-  /* box-shadow */
-  box-shadow: 0px 1px 54px -11px var(--very-darker-blue);
-  -webkit-box-shadow: 0px 1px 54px -11px var(--very-darker-blue);
-  -moz-box-shadow: 0px 1px 54px -11px var(--very-darker-blue);
-  /* box-shadow */
-}
-
-.countries-wrapper {
-  padding-inline: 2.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-}
-
-.country-card img {
-  border-radius: 7px 7px 0 0;
-}
-.country-card {
-  margin-block-end: 3.5rem;
-  border-radius: 7px;
-  cursor: pointer;
-}
-.country-card p,
-.country-details p {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-block-end: 1.1rem;
-}
-.border-countries-container li,
-.country-card span,
-.country-details span {
-  font-weight: 300;
-}
-.country-info-wrapper {
-  padding: 4rem 2rem;
-}
-.dark-mode {
-  background-color: var(--very-dark-blue);
-  color: var(--white);
-}
-.error {
-  color: red;
-}
 .dark-mode-text {
   cursor: pointer;
   font-size: 1.4rem;
   font-weight: 600;
 }
-.dark-mode .back-button,
-.dark-mode .border-countries-container li,
 .dark-mode .country-card,
 .dark-mode header,
 .dark-mode input,
@@ -157,23 +59,6 @@ select {
 .dark-mode select {
   background-color: var(--dark-blue);
   color: var(--white);
-}
-.h5-heading {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-block-end: 2rem;
-}
-.country-details-img {
-  margin-block-end: 3rem;
-}
-
-.country-img {
-  margin-block-end: 4rem;
-}
-.inputs {
-  padding-inline: 1.3rem;
-  display: flex;
-  flex-direction: column;
 }
 /* Navigation */
 .navigation,
@@ -188,74 +73,11 @@ select {
 .primary-heading {
   font-size: 1.4rem;
   font-weight: 800;
+  cursor: pointer;
 }
 ::placeholder {
   border-left: 6rem solid transparent;
 }
 /* Navigation */
-.search-input {
-  position: relative;
-}
-.search-icon {
-  position: absolute;
-  top: 18px;
-  font-size: 2.5rem;
-  padding-inline: 4.5rem;
-}
-.tertiary-heading {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-block-end: 2.5rem;
-}
-/* --------------------------------- CLASSES  ---------------------------------*/
-@media (min-width: 30em) {
-  input {
-    width: 30%;
-  }
 
-  small {
-    font-size: 1.4rem;
-  }
-  .country-details {
-    display: flex;
-    gap: 10rem;
-  }
-  .country-details-img {
-    width: 30%;
-  }
-  #languages-text,
-  .country-img,
-  .country-details-img {
-    margin-block-end: revert;
-  }
-  .countries-wrapper {
-    /* gap: 0 4rem; */
-    gap: 8rem;
-  }
-  .country-details-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 15rem;
-  }
-  small,
-  .countries-wrapper,
-  .inputs,
-  .navigation {
-    padding-inline: 5rem;
-  }
-  .inputs {
-    flex-direction: revert;
-    align-items: center;
-    justify-content: space-between;
-  }
-  ::placeholder {
-    border-left: 6rem solid transparent;
-  }
-  .primary-heading {
-    font-size: 1.8rem;
-  }
-  .search-icon {
-    top: 22px;
-    padding-inline: 8.5rem;
-  }
-}
+/* --------------------------------- CLASSES  ---------------------------------*/

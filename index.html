@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  x-data="rest_countries"
+  x-cloak
+  x-bind:class="darkMode ? 'dark-mode':''"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,15 +27,13 @@
       }
     </style>
   </head>
-  <body
-    x-data="rest_countries"
-    x-cloak
-    x-bind:class="darkMode ? 'dark-mode':''"
-  >
+  <body>
     <div>
       <header>
         <nav class="navigation">
-          <h1 class="primary-heading">Where in the world?</h1>
+          <a href="#home">
+            <h1 class="primary-heading">Where in the world?</h1>
+          </a>
           <div class="dark-mode-wrapper">
             <ion-icon name="moon-outline" x-show="!darkMode"></ion-icon>
             <ion-icon name="moon-sharp" x-show="darkMode"></ion-icon>
@@ -40,128 +43,16 @@
           </div>
         </nav>
       </header>
-      <div class="container">
-        <small x-show="error" class="error">invalid country name</small>
-        <div class="search-input" x-show="countryDetails.length<1">
-          <ion-icon
-            x-show="!reqCountry"
-            class="search-icon"
-            name="search-sharp"
-          ></ion-icon>
+      <template x-for="country in countries">
+        <div class="country-card">
+          <div class="image-container">
+            <img x-bind:src="country.flag" alt="" />
+          </div>
+          <div class="country-info-wrapper">
+            <h3 class="tertiary-heading" x-text="country.name"></h3>
+          </div>
         </div>
-        <div class="inputs">
-          <input
-            x-model="reqCountry"
-            x-on:change="searchForCountry()"
-            x-show="countryDetails.length<1"
-            type="search"
-            placeholder="Search for a country..."
-          />
-          <select
-            name="Regions"
-            id="region-select"
-            x-model="region"
-            x-on:change="filterByRegion"
-            x-show="countryDetails.length<1"
-          >
-            <option value="" disabled selected hidden>Filter by Region</option>
-            <option value="Africa">Africa</option>
-            <option value="Americas">Americas</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Oceania">Oceania</option>
-          </select>
-        </div>
-        <div class="countries-wrapper">
-          <template x-for="country in countries">
-            <div
-              class="country-card"
-              x-on:click="countryBordersByCode(country.name)"
-              x-show="countryDetails.length<1"
-            >
-              <img x-bind:src="country.flag" alt="" />
-              <div class="country-info-wrapper">
-                <h3 class="tertiary-heading" x-text="country.name"></h3>
-                <p>
-                  Population:
-                  <span x-text="country.population.toLocaleString()"></span>
-                </p>
-                <p>Region: <span x-text="country.region"></span></p>
-                <p>Capital: <span x-text="country.capital"></span></p>
-              </div>
-            </div>
-          </template>
-          <template x-for="detail in countryDetails">
-            <div x-show="countryDetails.length>0">
-              <a href="index.html" class="back-button">
-                <ion-icon name="arrow-back-sharp"></ion-icon>
-                <p>Back</p>
-              </a>
-
-              <div class="country-details-wrapper">
-                <img
-                  class="country-details-img"
-                  x-bind:src="detail.flag"
-                  alt=""
-                />
-                <div>
-                  <h3 class="tertiary-heading" x-text="detail.name"></h3>
-                  <div class="country-details">
-                    <!-- --------- -->
-                    <div>
-                      <p>
-                        Native Name: <span x-text="detail.nativeName"></span>
-                      </p>
-                      <p>
-                        Population:
-                        <span
-                          x-text="detail.population.toLocaleString()"
-                        ></span>
-                      </p>
-                      <p>Region: <span x-text="detail.region"></span></p>
-                      <p>Sub Region: <span x-text="detail.subregion"></span></p>
-                      <p id="capital-text">
-                        Capital: <span x-text="detail.capital"></span>
-                      </p>
-                    </div>
-                    <!-- --------- -->
-                    <div>
-                      <p>
-                        Top Level Domain:
-                        <span x-text="detail.topLevelDomain"></span>
-                      </p>
-                      <p>
-                        Currencies:
-                        <template x-for="curr in detail.currencies"
-                          ><span x-text="curr.name"></span
-                        ></template>
-                      </p>
-                      <p id="languages-text">
-                        Languages:
-                        <template x-for=" y in detail.languages">
-                          <span><span x-text="y.name"></span>, </span>
-                        </template>
-                      </p>
-                    </div>
-                  </div>
-                  <!-- --------- -->
-                  <div>
-                    <h5 class="h5-heading">Border Countries:</h5>
-                    <ul class="border-countries-container">
-                      <template x-for="x in detail.borders">
-                        <li
-                          x-text="x"
-                          x-on:click="countryBordersByCode(x)"
-                        ></li>
-                      </template>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </template>
-        </div>
-      </div>
+      </template>
     </div>
     <!-- LOAD IONICONS -->
     <script
